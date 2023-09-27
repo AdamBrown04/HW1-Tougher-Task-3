@@ -34,6 +34,11 @@ if (playGameUpper == "Y")
             rouge player = new rouge();
             player.characterName = characterName;
         }
+        else if (classChoiceLower == "archer")
+        {
+            archer player = new archer();
+            player.characterName = characterName;
+        }
     }
     else
     {
@@ -63,7 +68,7 @@ class character
 class mage : character
 {
     public float characterHealthRegeneration = 0.3f;
-    public int characterStrength = 2;
+    public int characterStrength = 1;
 }
 
 class barbarian : character
@@ -76,6 +81,13 @@ class barbarian : character
 class rouge : character
 {
     public float characterHealth = 2.0f;
-    public int movementSpeed = 3;
+    public int movementSpeed = 4;
     public float characterHealthRegeneration = 0.2f;
+}
+
+class archer : character
+{
+    public float characterHealth = 2.5f;
+    public int characterStrength = 2;
+    public int movementSpeed = 3;
 }
