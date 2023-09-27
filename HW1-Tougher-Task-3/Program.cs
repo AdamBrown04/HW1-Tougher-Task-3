@@ -3,10 +3,39 @@
 //There are lots of different weapons in the game, but all can be represented the same way, with a name, a strength, and a durability.
 //The player is capable of holding a single weapon at a time. 
 
+static character chooseClass(string classChoiceLower)
+{
+    if (classChoiceLower == "mage")
+    {
+        mage player = new mage();
+        return player;
+    }
+    else if (classChoiceLower == "barbarian")
+    {
+        barbarian player = new barbarian();
+        return player;
+    }
+    else if (classChoiceLower == "rouge")
+    {
+        rouge player = new rouge();
+        return player;
+    }
+    else if (classChoiceLower == "archer")
+    {
+        archer player = new archer();
+        return player;
+    }
+    else
+    {
+        character player = new character();
+        return player;
+    }
+}
+
 Console.WriteLine("Welcome player! What is your name?");
 string userName = Console.ReadLine();
 
-Console.WriteLine($"Hello {userName}! Would you like to play this text based adventure game? Y/N");
+Console.WriteLine($"Hello {userName}! Would you like to play this text based game? Y/N");
 string playGame = Console.ReadLine();
 string playGameUpper = playGame.ToUpper();
 
@@ -19,26 +48,8 @@ if (playGameUpper == "Y")
         Console.WriteLine($"What class would you like {characterName} to be?");
         string classChoice = Console.ReadLine();
         string classChoiceLower = classChoice.ToLower();
-        if (classChoiceLower == "mage")
-        {
-            mage player = new mage();
-            player.characterName = characterName;
-        }
-        else if (classChoiceLower == "barbarian")
-        {
-            barbarian player = new barbarian();
-            player.characterName = characterName;
-        }
-        else if (classChoiceLower == "rouge")
-        {
-            rouge player = new rouge();
-            player.characterName = characterName;
-        }
-        else if (classChoiceLower == "archer")
-        {
-            archer player = new archer();
-            player.characterName = characterName;
-        }
+        chooseClass(classChoiceLower);
+        
     }
     else
     {
@@ -57,6 +68,7 @@ else
 
 class character
 {
+    public string classType = "null";
     public string characterName = ""; //name of the character, only used for dialogue
     public float characterHealth = 3.0f; //how much health the character has 
     public float characterHealthRegeneration = 0.1f; //how much health the character regenerates each turn
@@ -67,12 +79,14 @@ class character
 
 class mage : character
 {
+    public string classType = "mage";
     public float characterHealthRegeneration = 0.3f;
     public int characterStrength = 1;
 }
 
 class barbarian : character
 {
+    public string classType = "barbarian";
     public float characterHealth = 4.0f;
     public int movementSpeed = 1;
     public int characterStrength = 5;
@@ -80,6 +94,7 @@ class barbarian : character
 
 class rouge : character
 {
+    public string classType = "rouge";
     public float characterHealth = 2.0f;
     public int movementSpeed = 4;
     public float characterHealthRegeneration = 0.2f;
@@ -87,6 +102,7 @@ class rouge : character
 
 class archer : character
 {
+    public string classType = "archer";
     public float characterHealth = 2.5f;
     public int characterStrength = 2;
     public int movementSpeed = 3;
