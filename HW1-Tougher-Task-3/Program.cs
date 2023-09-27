@@ -14,7 +14,11 @@ if (playGameUpper == "Y")
 {
     Console.WriteLine("pass");
 }
+else if (playGameUpper == "N")
+{
+    Console.WriteLine($"That's ok, maybe a different time then {userName}");
+}
 else
 {
-    Console.WriteLine("Fail");
+    Console.WriteLine("Error: incorrect input");
 }
