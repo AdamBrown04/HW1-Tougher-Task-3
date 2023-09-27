@@ -15,6 +15,9 @@ if (playGameUpper == "Y")
     character player = new character();
 
     Console.WriteLine("Enter your character's name: ");
+    player.characterName = Console.ReadLine();
+
+
 }
 else if (playGameUpper == "N")
 {
