@@ -12,7 +12,9 @@ string playGameUpper = playGame.ToUpper();
 
 if (playGameUpper == "Y")
 {
-    Console.WriteLine("pass");
+    character player = new character();
+
+    Console.WriteLine("Enter your character's name: ");
 }
 else if (playGameUpper == "N")
 {
@@ -22,3 +24,11 @@ else
 {
     Console.WriteLine("Error: incorrect input");
 }
+
+class character
+{
+    public string characterName;
+    public float characterHealth; //float as you could take 1.5 damage instead of just whole numbers/allows greater attack variety 
+    public float characterHealthRegeneration; //float as health is float
+    public int movementSpeed; 
+} 
