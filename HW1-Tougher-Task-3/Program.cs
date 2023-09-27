@@ -42,6 +42,14 @@ if (playGameUpper == "Y")
                 Console.WriteLine("What are you even trying to do? That's not an option");
                 break;
         }
+        
+        Console.WriteLine("\nNow that you have completed your first stage of training I feel like it's time to give you a weapon" +
+            "\nI'm going to give you what every great hero starts with, you're going to ha- \nA sword!? Are you mad? You're no where good" +
+            "enough for a sword! \nI'm going to give you a wooden stick! \n*You take the wooden stick*");
+        weapon woodenStick = new weapon();
+        woodenStick.weaponName = "A heros first weapon";
+        woodenStick.weaponStrength = 1;
+        woodenStick.weaponDurability = 500;
 
     }
     else
