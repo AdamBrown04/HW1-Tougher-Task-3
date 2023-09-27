@@ -29,6 +29,11 @@ if (playGameUpper == "Y")
             barbarian player = new barbarian();
             player.characterName = characterName;
         }
+        else if (classChoiceLower == "rouge")
+        {
+            rouge player = new rouge();
+            player.characterName = characterName;
+        }
     }
     else
     {
@@ -66,4 +71,11 @@ class barbarian : character
     public float characterHealth = 4.0f;
     public int movementSpeed = 1;
     public int characterStrength = 5;
+}
+
+class rouge : character
+{
+    public float characterHealth = 2.0f;
+    public int movementSpeed = 3;
+    public float characterHealthRegeneration = 0.2f;
 }
