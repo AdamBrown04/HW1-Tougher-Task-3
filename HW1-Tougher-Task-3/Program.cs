@@ -12,13 +12,18 @@ string playGameUpper = playGame.ToUpper();
 
 if (playGameUpper == "Y")
 {
-    character player = new character();
-
     Console.WriteLine("Enter your character's name: ");
-    player.characterName = Console.ReadLine();
-    if (player.characterName != "")
+    string  characterName = Console.ReadLine();
+    if (characterName != "")
     {
-        Console.WriteLine("Pass");
+        Console.WriteLine($"What class would you like {characterName} to be?");
+        string classChoice = Console.ReadLine();
+        string classChoiceLower = classChoice.ToLower();
+        if (classChoiceLower == "mage")
+        {
+            mage player = new mage();
+            
+        }
     }
     else
     {
@@ -40,5 +45,13 @@ class character
     public string characterName = "";
     public float characterHealth = 3.0f; //float as you could take 1.5 damage instead of just whole numbers/allows greater attack variety 
     public float characterHealthRegeneration = 0.1f; //float as health is float
-    public int movementSpeed = 1; 
+    public int movementSpeed = 1;
+    public int characterStrength = 3;
 } 
+
+class mage : character
+{
+    public float characterHealthRegeneration = 0.3f;
+    public int characterStrength = 2;
+    
+}
