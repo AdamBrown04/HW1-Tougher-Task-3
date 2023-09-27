@@ -22,7 +22,12 @@ if (playGameUpper == "Y")
         if (classChoiceLower == "mage")
         {
             mage player = new mage();
-            
+            player.characterName = characterName;
+        }
+        else if (classChoiceLower == "barbarian")
+        {
+            barbarian player = new barbarian();
+            player.characterName = characterName;
         }
     }
     else
@@ -42,16 +47,23 @@ else
 
 class character
 {
-    public string characterName = "";
-    public float characterHealth = 3.0f; //float as you could take 1.5 damage instead of just whole numbers/allows greater attack variety 
-    public float characterHealthRegeneration = 0.1f; //float as health is float
-    public int movementSpeed = 1;
-    public int characterStrength = 3;
+    public string characterName = ""; //name of the character, only used for dialogue
+    public float characterHealth = 3.0f; //how much health the character has 
+    public float characterHealthRegeneration = 0.1f; //how much health the character regenerates each turn
+    public int movementSpeed = 2; //how fast the character moves
+    public int characterStrength = 3; //affects the melee damage of a character
+                                      //e.g. if a club has 5 damage the strength would be added on top making it 8.
 } 
 
 class mage : character
 {
     public float characterHealthRegeneration = 0.3f;
     public int characterStrength = 2;
-    
+}
+
+class barbarian : character
+{
+    public float characterHealth = 4.0f;
+    public int movementSpeed = 1;
+    public int characterStrength = 5;
 }
