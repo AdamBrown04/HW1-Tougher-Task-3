@@ -12,11 +12,13 @@ string playGameUpper = playGame.ToUpper();
 
 if (playGameUpper == "Y")
 {
+    character player = new character();
+
     Console.WriteLine("Enter your character's name: ");
-    string  characterName = Console.ReadLine();
-    if (characterName != "")
+    player.characterName = Console.ReadLine();
+    if (player.characterName != "")
     {
-       
+        
     }
     else
     {
@@ -42,3 +44,10 @@ class character
     public int characterStrength = 3; //affects the melee damage of a character
                                       //e.g. if a club has 5 damage the strength would be added on top making it 8.
 } 
+
+class weapon
+{
+    public string weaponName = "";
+    public int weaponStrength = 0;
+    public int weaponDurability = 1;
+}
