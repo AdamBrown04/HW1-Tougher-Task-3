@@ -17,16 +17,17 @@ while (playGameUpper == "Y")
         Console.WriteLine("Enter your character's name: ");
         player.characterName = Console.ReadLine();
     }
+    
     Console.WriteLine($"Hello {player.characterName} \nYour character stats are: \nHealth: {player.characterHealth} " +
         $"\nHealth Regeneration: {player.characterHealthRegeneration} \nMovement speed: {player.movementSpeed} \nStrength: {player.characterStrength}" +
-        $"\nMoney: {player.money} \n\nWhat would you like to do? \n1) Train \n2) Fight \n3) Shop \n4) Exit");
+        $"\nMoney: {player.money} \n\nWhat would you like to do? \n1) Train Strength \n2) Train Speed \n3) Fight \n4) Shop \n5) Exit");
     string option = Console.ReadLine();
 
     switch (option)
     {
         case ("1"):
-            int chanceOfStrengthIncrease = random.Next(1, 7);
-            if (chanceOfStrengthIncrease >= 5)
+            int chanceOfStrengthIncrease = random.Next(1, 101);
+            if (chanceOfStrengthIncrease >= 80)
             {
                 player.characterStrength = player.characterStrength + 1;
                 Console.WriteLine($"Well done! Your training was successful and your stregnth was increased! \nYour new strength is {player.characterStrength}");
@@ -37,12 +38,25 @@ while (playGameUpper == "Y")
             }
             break;
         case ("2"):
-            //wip
+            int chanceOfSpeedIncrease = random.Next(1, 101);
+            if (chanceOfSpeedIncrease >= 80)
+            {
+                player.movementSpeed = player.movementSpeed + 1;
+                Console.WriteLine($"Well done! Your training was successful and your movement speed was increased! " +
+                    $"\nYour new strength is {player.movementSpeed}");
+            }
+            else
+            {
+                Console.WriteLine("Unfortunately your movement speed didn't increase this time");
+            }
             break;
         case ("3"):
             //wip
             break;
         case ("4"):
+            //wip
+            break;
+        case ("5"):
             playGameUpper = "GameEnded";
             break;
         default:
@@ -81,4 +95,5 @@ class weapon
     public int weaponDurability = 10;
 }
 
-//Console.Clear(); use to delete all text on screen
+//Console.Clear(); use to delete all text on screen ref: asked Oliver CW
+//Task.Delay().Wait(); use to make program pause ref: stackoverflow.com/questions/5449956/how-to-add-a-delay-for-a-2-or-3-seconds
