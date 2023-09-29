@@ -18,9 +18,8 @@ while (playGameUpper == "Y")
         player.characterName = Console.ReadLine();
     }
     
-    Console.WriteLine($"Hello {player.characterName} \nYour character stats are: \nHealth: {player.characterHealth} " +
-        $"\nHealth Regeneration: {player.characterHealthRegeneration} \nMovement speed: {player.movementSpeed} \nStrength: {player.characterStrength}" +
-        $"\nMoney: {player.money} \n\nWhat would you like to do? \n1) Train Strength \n2) Train Speed \n3) Fight \n4) Shop \n5) Exit");
+    Console.WriteLine($"Hello {player.characterName} \nWhat would you like to do? \n1) Train Strength \n2) Train Speed" +
+        $" \n3) Fight \n4) Shop \n5) Stats \n6) Exit");
     string option = Console.ReadLine();
 
     switch (option)
@@ -57,6 +56,9 @@ while (playGameUpper == "Y")
             //wip
             break;
         case ("5"):
+            showStats();
+            break;
+        case ("6"):
             playGameUpper = "GameEnded";
             break;
         default:
@@ -74,12 +76,20 @@ else
 {
     Console.WriteLine("That's ok, maybe a different time then");
 }
-    
+
+
+void showStats()
+{
+    Console.WriteLine($"\nYour character stats are: \nHealth: {player.characterHealth} " +
+        $"\nHealth Regeneration: {player.characterHealthRegeneration} \nMovement speed: {player.movementSpeed} \nStrength: {player.characterStrength}" +
+        $"\nMoney: {player.money}");
+}
 
 
 class character
 {
     public string characterName = ""; //name of the character, only used for dialogue
+    public bool holdingWeapon = false; //sees if the player is currently holding a weapon
     public float characterHealth = 5.0f; //how much health the character has 
     public float characterHealthRegeneration = 0.1f; //how much health the character regenerates each turn
     public int money = 500; //amount of in-program currency the character has
