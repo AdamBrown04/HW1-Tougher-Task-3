@@ -7,10 +7,11 @@ string playGame = Console.ReadLine();
 string playGameUpper = playGame.ToUpper();
 
 character player = new character();
+Random random = new Random();
 
 while (playGameUpper == "Y")
 {
-    
+
     while (player.characterName == "")
     {
         Console.WriteLine("Enter your character's name: ");
@@ -21,15 +22,27 @@ while (playGameUpper == "Y")
         $"\nMoney: {player.money} \n\nWhat would you like to do? \n1) Train \n2) Fight \n3) Shop \n4) Exit");
     string option = Console.ReadLine();
 
-    if (option == "4")
+    switch (option)
     {
-        playGameUpper = "N";
+        case ("1"):
+            int chanceOfStrengthIncrease = random.Next(1, 7);
+            if (chanceOfStrengthIncrease >= 5)
+            {
+                player.characterStrength = player.characterStrength + 1;
+                Console.WriteLine($"Well done! Your training was successful and your stregnth was increased! \nYour new strength is {player.characterStrength}");
+            }
+            else
+            {
+                Console.WriteLine("Unfortunately your stregnth didn't increase this time");
+            }
+            break;
+        default:
+            Console.WriteLine("Please enter one of the options");
+            break;
+
     }
-    
 
 }
-
-
     Console.WriteLine("That's ok, maybe a different time then");
 
 
