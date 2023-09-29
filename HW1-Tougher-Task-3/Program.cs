@@ -24,7 +24,7 @@ while (playGameUpper == "Y")
         Console.WriteLine($"Hello { player.characterName}");
         welcomed = true;
     }
-    Console.WriteLine("What would you like to do? \n1) Train Strength \n2) Train Speed" +
+    Console.WriteLine($"What would you like to do {player.characterName}? \n1) Train Strength \n2) Train Speed" +
         $" \n3) Fight \n4) Shop \n5) Stats \n6) Exit");
     string option = Console.ReadLine();
 
