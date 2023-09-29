@@ -6,7 +6,7 @@ Console.WriteLine("Hello! Would you like to play this text based game? Y/N");
 string playGame = Console.ReadLine();
 string playGameUpper = playGame.ToUpper();
 
-if (playGameUpper == "Y")
+while (playGameUpper == "Y")
 {
     character player = new character();
 
@@ -14,42 +14,7 @@ if (playGameUpper == "Y")
     player.characterName = Console.ReadLine();
     if (player.characterName != "")
     {
-        Console.WriteLine($"Welcome {player.characterName}! This is the land of Anglia! You ar-\nHow did you get here? \n. . . " +
-            $"\nThat doesn't matter, what does matter is the re- \nWho am I? \n. . . \nLets just say I'm your mentor \nAnyways, where was I? " +
-            $"\nAhh yes, the reason why you're here! \nYou are here to save this land from raiders and many other of those evil types." +
-            $"\nBut before we get onto that I must ensure you are trained correctly for the task ahead!" +
-            $"\nFirst off lets work on your strength, after all you can barely lift up a sword never mind swing one!");
-        
-        Console.WriteLine("\nSo how are you going to train? \n*1)Idle as a sloth (strength stays the same) " +
-            "\n2)Getting stuck in (strength increases by 1) \n3)Become a one man army (strength increase by 2 but movement speed decreases by 1)*");
-        int strengthTraining = Convert.ToInt32(Console.ReadLine());
-        switch (strengthTraining)
-        {
-            case (1):
-                Console.WriteLine("What's your plan here then? \nBeat your foes by playing dead?");
-                break;
-            case (2):
-                player.characterStrength = 4;
-                Console.WriteLine($"Well done! We're finally getting somewhere \n*Your strength is {player.characterStrength}*");
-                break;
-            case (3):
-                player.characterStrength =5;
-                player.movementSpeed = 2;
-                Console.WriteLine($"Bloody hell, I know I said to get stronger but this is something else! " +
-                    $"\n*Your strength is {player.characterStrength} and your movement speed is {player.movementSpeed}*");
-                break;
-            default:
-                Console.WriteLine("What are you even trying to do? That's not an option");
-                break;
-        }
-        
-        Console.WriteLine("\nNow that you have completed your first stage of training I feel like it's time to give you a weapon" +
-            "\nI'm going to give you what every great hero starts with, you're going to ha- \nA sword!? Are you mad? You're no where good" +
-            "enough for a sword! \nI'm going to give you a wooden stick! \n*You take the wooden stick*");
-        weapon woodenStick = new weapon();
-        woodenStick.weaponName = "A heros first weapon";
-        woodenStick.weaponStrength = 1;
-        woodenStick.weaponDurability = 500;
+        Console.WriteLine($"Welcome {player.characterName}! ");
 
     }
     else
@@ -58,10 +23,10 @@ if (playGameUpper == "Y")
     }
 
 }
-else if (playGameUpper == "N")
-{
+
+
     Console.WriteLine("That's ok, maybe a different time then");
-}
+
 
 class character
 {
