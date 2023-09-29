@@ -6,21 +6,17 @@ Console.WriteLine("Hello! Would you like to play this text based game? Y/N");
 string playGame = Console.ReadLine();
 string playGameUpper = playGame.ToUpper();
 
+character player = new character();
+
 while (playGameUpper == "Y")
 {
-    character player = new character();
-
-    Console.WriteLine("Enter your character's name: ");
-    player.characterName = Console.ReadLine();
-    if (player.characterName != "")
+    
+    while (player.characterName == "")
     {
-        Console.WriteLine($"Welcome {player.characterName}! ");
-
+        Console.WriteLine("Enter your character's name: ");
+        player.characterName = Console.ReadLine();
     }
-    else
-    {
-        Console.WriteLine("Error: incorrect input");
-    }
+    Console.WriteLine($"Hello {player.characterName}");
 
 }
 
