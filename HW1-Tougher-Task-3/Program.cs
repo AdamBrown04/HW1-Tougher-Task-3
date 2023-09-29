@@ -17,7 +17,7 @@ while (playGameUpper == "Y")
         Console.WriteLine("Enter your character's name: ");
         player.characterName = Console.ReadLine();
     }
-    Console.WriteLine($"\nHello {player.characterName} \nYour character stats are: \nHealth: {player.characterHealth} " +
+    Console.WriteLine($"Hello {player.characterName} \nYour character stats are: \nHealth: {player.characterHealth} " +
         $"\nHealth Regeneration: {player.characterHealthRegeneration} \nMovement speed: {player.movementSpeed} \nStrength: {player.characterStrength}" +
         $"\nMoney: {player.money} \n\nWhat would you like to do? \n1) Train \n2) Fight \n3) Shop \n4) Exit");
     string option = Console.ReadLine();
@@ -36,6 +36,15 @@ while (playGameUpper == "Y")
                 Console.WriteLine("Unfortunately your stregnth didn't increase this time");
             }
             break;
+        case ("2"):
+            //wip
+            break;
+        case ("3"):
+            //wip
+            break;
+        case ("4"):
+            playGameUpper = "GameEnded";
+            break;
         default:
             Console.WriteLine("Please enter one of the options");
             break;
@@ -43,7 +52,15 @@ while (playGameUpper == "Y")
     }
 
 }
+    if(playGameUpper == "GameEnded")
+{
+    Console.WriteLine("I hope you've had fun and come back soon");
+}
+else
+{
     Console.WriteLine("That's ok, maybe a different time then");
+}
+    
 
 
 class character
@@ -63,3 +80,5 @@ class weapon
     public int weaponStrength = 1;
     public int weaponDurability = 10;
 }
+
+//Console.Clear(); use to delete all text on screen
