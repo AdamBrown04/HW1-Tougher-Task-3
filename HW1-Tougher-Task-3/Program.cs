@@ -16,7 +16,12 @@ while (playGameUpper == "Y")
         Console.WriteLine("Enter your character's name: ");
         player.characterName = Console.ReadLine();
     }
-    Console.WriteLine($"Hello {player.characterName}");
+    Console.WriteLine($"\nHello {player.characterName} \nYour character stats are: \nHealth: {player.characterHealth} " +
+        $"\nHealth Regeneration: {player.characterHealthRegeneration} \nMovement speed: {player.movementSpeed} \nStrength: {player.characterStrength}" +
+        $"\nMoney: {player.money}");
+    string option = Console.ReadLine();
+
+    if (option == "loop");
 
 }
 
@@ -27,8 +32,9 @@ while (playGameUpper == "Y")
 class character
 {
     public string characterName = ""; //name of the character, only used for dialogue
-    public float characterHealth = 3.0f; //how much health the character has 
+    public float characterHealth = 5.0f; //how much health the character has 
     public float characterHealthRegeneration = 0.1f; //how much health the character regenerates each turn
+    public int money = 500; //amount of in-program currency the character has
     public int movementSpeed = 3; //how fast the character moves
     public int characterStrength = 3; //affects the melee damage of a character
                                       //e.g. if a club has 5 damage the strength would be added on top making it 8.
