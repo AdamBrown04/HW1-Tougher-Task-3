@@ -18,10 +18,14 @@ while (playGameUpper == "Y")
     }
     Console.WriteLine($"\nHello {player.characterName} \nYour character stats are: \nHealth: {player.characterHealth} " +
         $"\nHealth Regeneration: {player.characterHealthRegeneration} \nMovement speed: {player.movementSpeed} \nStrength: {player.characterStrength}" +
-        $"\nMoney: {player.money}");
+        $"\nMoney: {player.money} \n\nWhat would you like to do? \n1) Train \n2) Fight \n3) Shop \n4) Exit");
     string option = Console.ReadLine();
 
-    if (option == "loop");
+    if (option == "4")
+    {
+        playGameUpper = "N";
+    }
+    
 
 }
 
@@ -43,6 +47,6 @@ class character
 class weapon
 {
     public string weaponName = "";
-    public int weaponStrength = 0;
-    public int weaponDurability = 1;
+    public int weaponStrength = 1;
+    public int weaponDurability = 10;
 }
