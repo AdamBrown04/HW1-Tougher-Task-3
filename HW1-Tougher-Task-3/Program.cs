@@ -11,13 +11,16 @@ Random random = new Random();
 
 bool welcomed = false;
 
+Console.Clear();
+
 while (playGameUpper == "Y")
 {
 
     while (player.characterName == "")
     {
-        Console.WriteLine("Enter your character's name: ");
+        Console.Write("Enter your character's name: ");
         player.characterName = Console.ReadLine();
+        Console.Clear();
     }
     if (welcomed == false)
     {
@@ -36,10 +39,14 @@ while (playGameUpper == "Y")
             {
                 player.characterStrength = player.characterStrength + 1;
                 Console.WriteLine($"Well done! Your training was successful and your stregnth was increased! \nYour new strength is {player.characterStrength}");
+                Task.Delay(4000).Wait();
+                Console.Clear();
             }
             else
             {
                 Console.WriteLine("Unfortunately your stregnth didn't increase this time");
+                Task.Delay(2500).Wait();
+                Console.Clear();
             }
             break;
         case ("2"):
@@ -49,10 +56,14 @@ while (playGameUpper == "Y")
                 player.movementSpeed = player.movementSpeed + 1;
                 Console.WriteLine($"Well done! Your training was successful and your movement speed was increased! " +
                     $"\nYour new strength is {player.movementSpeed}");
+                Task.Delay(4000).Wait();
+                Console.Clear();
             }
             else
             {
                 Console.WriteLine("Unfortunately your movement speed didn't increase this time");
+                Task.Delay(2500).Wait();
+                Console.Clear();
             }
             break;
         case ("3"):
