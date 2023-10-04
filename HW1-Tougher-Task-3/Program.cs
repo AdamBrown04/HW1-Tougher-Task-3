@@ -39,13 +39,13 @@ while (playGameUpper == "Y")
             {
                 player.characterStrength = player.characterStrength + 1;
                 Console.WriteLine($"Well done! Your training was successful and your stregnth was increased! \nYour new strength is {player.characterStrength}");
-                Task.Delay(4000).Wait();
+                Task.Delay(3000).Wait();
                 Console.Clear();
             }
             else
             {
                 Console.WriteLine("Unfortunately your stregnth didn't increase this time");
-                Task.Delay(2500).Wait();
+                Task.Delay(2000).Wait();
                 Console.Clear();
             }
             break;
@@ -56,13 +56,13 @@ while (playGameUpper == "Y")
                 player.movementSpeed = player.movementSpeed + 1;
                 Console.WriteLine($"Well done! Your training was successful and your movement speed was increased! " +
                     $"\nYour new strength is {player.movementSpeed}");
-                Task.Delay(4000).Wait();
+                Task.Delay(3000).Wait();
                 Console.Clear();
             }
             else
             {
                 Console.WriteLine("Unfortunately your movement speed didn't increase this time");
-                Task.Delay(2500).Wait();
+                Task.Delay(2000).Wait();
                 Console.Clear();
             }
             break;
@@ -70,7 +70,39 @@ while (playGameUpper == "Y")
             //wip
             break;
         case ("4"):
-            //wip
+            Task.Delay(500).Wait();
+            Console.Clear();
+            Console.WriteLine("Hello adventurer! \nWhat would you like to do? \n1) Buy mythic quality weapon (2000 gold) " +
+                "\n2) Buy high quality weapon (1250 gold)\n3) Buy meduim quality weapon (750 gold) \n4) Buy low quality weapon (300 gold)" +
+                "\n5) Back");
+            int buyWeaponChoice = Convert.ToInt32(Console.ReadLine());
+
+            switch (buyWeaponChoice) 
+            {
+                case 1:
+                    player.money = player.money - 2000;
+                    break;
+                case 2:
+                    player.money = player.money - 1250;
+                    break;
+                case 3:
+                    player.money = player.money - 750;
+                    break;
+                case 4:
+                    player.money = player.money - 300;
+                    break;
+                case 5:
+                    Console.WriteLine("Returning to main menu");
+                    Task.Delay(2000).Wait();
+                    Console.Clear();
+                    break;
+                default:
+                    Console.WriteLine("Invalid input! Returning to main menu");
+                    Task.Delay(2000).Wait();
+                    Console.Clear();
+                    break;
+            }
+
             break;
         case ("5"):
             showStats();
