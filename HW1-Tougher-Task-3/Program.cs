@@ -81,15 +81,31 @@ while (playGameUpper == "Y")
             {
                 case 1:
                     player.money = player.money - 2000;
+                    player.holdingWeapon = true;
+                    weapon mythicWeapon = new weapon();
+                    mythicWeapon.weaponDurability = random.Next(18,39);
+                    mythicWeapon.weaponStrength = random.Next(20,36);
                     break;
                 case 2:
                     player.money = player.money - 1250;
+                    player.holdingWeapon = true;
+                    weapon highWeapon = new weapon();
+                    highWeapon.weaponDurability = random.Next(20,31);
+                    highWeapon.weaponStrength = random.Next(15,26);
                     break;
                 case 3:
                     player.money = player.money - 750;
+                    player.holdingWeapon = true;
+                    weapon meduimWeapon = new weapon();
+                    meduimWeapon.weaponDurability = random.Next(12,24);
+                    meduimWeapon.weaponStrength = random.Next(7,18);
                     break;
                 case 4:
                     player.money = player.money - 300;
+                    player.holdingWeapon = true;
+                    weapon lowWeapon = new weapon();
+                    lowWeapon.weaponDurability = random.Next(5,16);
+                    lowWeapon.weaponStrength = random.Next(0,11);
                     break;
                 case 5:
                     Console.WriteLine("Returning to main menu");
@@ -149,9 +165,9 @@ class character
 
 class weapon
 {
-    public string weaponName = "";
-    public int weaponStrength = 1;
-    public int weaponDurability = 10;
+    public string weaponName; //no weapon names implemented yet
+    public int weaponStrength;
+    public int weaponDurability;
 }
 
 //Console.Clear(); use to delete all text on screen ref: asked Oliver CW
