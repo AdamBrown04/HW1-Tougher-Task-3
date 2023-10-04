@@ -145,9 +145,21 @@ else
 
 void showStats()
 {
-    Console.WriteLine($"\nYour character stats are: \nHealth: {player.characterHealth} " +
-        $"\nHealth Regeneration: {player.characterHealthRegeneration} \nMovement speed: {player.movementSpeed} \nStrength: {player.characterStrength}" +
-        $"\nMoney: {player.money}");
+    Console.Clear();
+    if (!player.holdingWeapon)
+    {
+        Console.WriteLine($"Your character stats are: \nHealth: {player.characterHealth} " +
+                $"\nHealth Regeneration: {player.characterHealthRegeneration} \nMovement speed: {player.movementSpeed} \nStrength: {player.characterStrength}" +
+                $"\nMoney: {player.money} \n\nYou currently do not have a weapon");
+    }
+    else
+    {
+        Console.WriteLine($"Your character stats are: \nHealth: {player.characterHealth} " +
+                $"\nHealth Regeneration: {player.characterHealthRegeneration} \nMovement speed: {player.movementSpeed} \nStrength: {player.characterStrength}" +
+                $"\nMoney: {player.money} \n\nYour weapon stats are: \n");
+    }
+    Task.Delay(5000).Wait();
+    Console.Clear();
 }
 
 
@@ -165,7 +177,7 @@ class character
 
 class weapon
 {
-    public string weaponName; //no weapon names implemented yet
+    public string weaponName; //no weapon names implemented yet (could use to distinguish types of weapon)
     public int weaponStrength;
     public int weaponDurability;
 }
