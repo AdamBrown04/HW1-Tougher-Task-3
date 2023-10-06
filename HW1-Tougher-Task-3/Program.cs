@@ -50,6 +50,8 @@ while (playGameUpper == "Y")
             else if (player.characterStrength == 20) //if the player strength is equal to 20 then this code is ran, this is used to try and balance the game
             {
                 Console.WriteLine("You have hit maximum strength!"); //informs the user that they're at maximum strength 
+                Task.Delay(2000).Wait();
+                Console.Clear();
             }
             else
             {
@@ -60,12 +62,18 @@ while (playGameUpper == "Y")
             break;
         case ("2"):
             int chanceOfSpeedIncrease = random.Next(1, 101);//randomly generates the chance of the player speed increasing between 1 and 100
-            if (chanceOfSpeedIncrease >= 80) //player requires at least a number of 80 to increase speed (makes it harder to incerease stats)
+            if (chanceOfSpeedIncrease >= 80 && player.movementSpeed < 20) //player requires at least a number of 80 to increase speed (makes it harder to incerease stats) and is below 20
             {
                 player.movementSpeed = player.movementSpeed + 1; //increases player strenth then outputs a message informing them
                 Console.WriteLine($"Well done! Your training was successful and your movement speed was increased! " +
                     $"\nYour new strength is {player.movementSpeed}");
                 Task.Delay(3000).Wait();
+                Console.Clear();
+            }
+            else if(player.movementSpeed == 20) //is used when the user is it at the max speed
+            {
+                Console.WriteLine("You are at maximum speed!");
+                Task.Delay(2000).Wait();
                 Console.Clear();
             }
             else
