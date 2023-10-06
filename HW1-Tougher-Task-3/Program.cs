@@ -7,6 +7,10 @@ string playGame = Console.ReadLine();
 string playGameUpper = playGame.ToUpper();
 
 character player = new character();
+weapon mythicWeapon = new weapon();
+weapon highWeapon = new weapon();
+weapon meduimWeapon = new weapon();
+weapon lowWeapon = new weapon();
 Random random = new Random();
 
 bool welcomed = false;
@@ -84,7 +88,7 @@ while (playGameUpper == "Y")
                     if (player.money >= 0 && !player.holdingWeapon)
                     {
                         player.holdingWeapon = true;
-                        weapon mythicWeapon = new weapon();
+                        player.weaponRarityType = "mythic";
                         mythicWeapon.weaponDurability = random.Next(18, 39);
                         mythicWeapon.weaponStrength = random.Next(20, 36);
                         Console.WriteLine($"Your new weapon has a stregnth of {mythicWeapon.weaponStrength} and has a durability of {mythicWeapon.weaponDurability}");
@@ -106,7 +110,7 @@ while (playGameUpper == "Y")
                     if (player.money >= 0 && !player.holdingWeapon)
                     {
                         player.holdingWeapon = true;
-                        weapon highWeapon = new weapon();
+                        player.weaponRarityType = "rare";
                         highWeapon.weaponDurability = random.Next(20, 31);
                         highWeapon.weaponStrength = random.Next(15, 26);
                         Console.WriteLine($"Your new weapon has a stregnth of {highWeapon.weaponStrength} and has a durability of {highWeapon.weaponDurability}");
@@ -128,7 +132,7 @@ while (playGameUpper == "Y")
                     if (player.money >= 0 && !player.holdingWeapon)
                     {
                         player.holdingWeapon = true;
-                        weapon meduimWeapon = new weapon();
+                        player.weaponRarityType = "uncommon";
                         meduimWeapon.weaponDurability = random.Next(12, 24);
                         meduimWeapon.weaponStrength = random.Next(7, 18);
                         Console.WriteLine($"Your new weapon has a stregnth of {meduimWeapon.weaponStrength} and has a durability of {meduimWeapon.weaponDurability}");
@@ -150,7 +154,7 @@ while (playGameUpper == "Y")
                     if(player.money >= 0 && !player.holdingWeapon)
                     {
                         player.holdingWeapon = true;
-                        weapon lowWeapon = new weapon();
+                        player.weaponRarityType = "common";
                         lowWeapon.weaponDurability = random.Next(5, 16);
                         lowWeapon.weaponStrength = random.Next(0, 11);
                         Console.WriteLine($"Your new weapon has a stregnth of {lowWeapon.weaponStrength} and has a durability of {lowWeapon.weaponDurability}");
@@ -215,9 +219,34 @@ void showStats()
     }
     else
     {
-        Console.WriteLine($"Your character stats are: \nHealth: {player.characterHealth} " +
+        switch (player.weaponRarityType)
+        {
+            case "mythic":
+                Console.WriteLine($"Your character stats are: \nHealth: {player.characterHealth} " +
                 $"\nHealth Regeneration: {player.characterHealthRegeneration} \nMovement speed: {player.movementSpeed} \nStrength: {player.characterStrength}" +
-                $"\nMoney: {player.money} \n\nYour weapon stats are: \n");
+                $"\nMoney: {player.money} \n\nYour weapon stats are: \nWeapon damage: {mythicWeapon.weaponStrength} \nWeapon durability: {mythicWeapon.weaponDurability}" +
+                $"\nWeapon rarity: {player.weaponRarityType}");
+                break;
+            case "rare":
+                Console.WriteLine($"Your character stats are: \nHealth: {player.characterHealth} " +
+                $"\nHealth Regeneration: {player.characterHealthRegeneration} \nMovement speed: {player.movementSpeed} \nStrength: {player.characterStrength}" +
+                $"\nMoney: {player.money} \n\nYour weapon stats are: \nWeapon damage: {highWeapon.weaponStrength} \nWeapon durability: {highWeapon.weaponDurability}" +
+                $"\nWeapon rarity: {player.weaponRarityType}");
+                break;
+            case "uncommon":
+                Console.WriteLine($"Your character stats are: \nHealth: {player.characterHealth} " +
+                $"\nHealth Regeneration: {player.characterHealthRegeneration} \nMovement speed: {player.movementSpeed} \nStrength: {player.characterStrength}" +
+                $"\nMoney: {player.money} \n\nYour weapon stats are: \nWeapon damage: {meduimWeapon.weaponStrength} \nWeapon durability: {meduimWeapon.weaponDurability}" +
+                $"\nWeapon rarity: {player.weaponRarityType}");
+                break;
+            case "common":
+                Console.WriteLine($"Your character stats are: \nHealth: {player.characterHealth} " +
+                $"\nHealth Regeneration: {player.characterHealthRegeneration} \nMovement speed: {player.movementSpeed} \nStrength: {player.characterStrength}" +
+                $"\nMoney: {player.money} \n\nYour weapon stats are: \nWeapon damage: {lowWeapon.weaponStrength} \nWeapon durability: {lowWeapon.weaponDurability}" +
+                $"\nWeapon rarity: {player.weaponRarityType}");
+                break;
+        }
+        
     }
     Task.Delay(5000).Wait();
     Console.Clear();
@@ -227,6 +256,7 @@ void showStats()
 class character
 {
     public string characterName = ""; //name of the character, only used for dialogue
+    public string weaponRarityType = ""; //This is used to show that stats of weapons
     public bool holdingWeapon = false; //sees if the player is currently holding a weapon
     public float characterHealth = 5.0f; //how much health the character has 
     public float characterHealthRegeneration = 0.1f; //how much health the character regenerates each turn
