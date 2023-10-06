@@ -40,12 +40,16 @@ while (playGameUpper == "Y")
     {
         case ("1"):            
             int chanceOfStrengthIncrease = random.Next(1, 101); //randomly generates the chance of the player strength increasing between 1 and 100
-            if (chanceOfStrengthIncrease >= 80) //player requires at least a number of 80 to increase strength (makes it harder to incerease stats)
+            if (chanceOfStrengthIncrease >= 80 && player.characterStrength < 20) //player requires at least a number of 80 to increase strength (makes it harder to incerease stats) and if player strength is less than 0
             {
                 player.characterStrength = player.characterStrength + 1; //increases player strenth then outputs a message informing them
                 Console.WriteLine($"Well done! Your training was successful and your stregnth was increased! \nYour new strength is {player.characterStrength}");
                 Task.Delay(3000).Wait(); //used so the console isn't cleared instantly but rather gives the user time to read the message
                 Console.Clear();
+            }
+            else if (player.characterStrength == 20) //if the player strength is equal to 20 then this code is ran, this is used to try and balance the game
+            {
+                Console.WriteLine("You have hit maximum strength!"); //informs the user that they're at maximum strength 
             }
             else
             {
