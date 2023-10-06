@@ -81,31 +81,92 @@ while (playGameUpper == "Y")
             {
                 case 1:
                     player.money = player.money - 2000;
-                    player.holdingWeapon = true;
-                    weapon mythicWeapon = new weapon();
-                    mythicWeapon.weaponDurability = random.Next(18,39);
-                    mythicWeapon.weaponStrength = random.Next(20,36);
+                    if (player.money >= 0 && !player.holdingWeapon)
+                    {
+                        player.holdingWeapon = true;
+                        weapon mythicWeapon = new weapon();
+                        mythicWeapon.weaponDurability = random.Next(18, 39);
+                        mythicWeapon.weaponStrength = random.Next(20, 36);
+                        Console.WriteLine($"Your new weapon has a stregnth of {mythicWeapon.weaponStrength} and has a durability of {mythicWeapon.weaponDurability}");
+                    }
+                    else if(player.money < 0)
+                    {
+                        Console.WriteLine("You do not have enough money to buy this weapon");
+                        player.money = player.money + 2000;
+                    }
+                    else if (player.holdingWeapon)
+                    {
+                        Console.WriteLine("You already have a weapon equipped! You can not get another weapon");
+                    }
+                    Task.Delay(2000).Wait();
+                    Console.Clear();
                     break;
                 case 2:
                     player.money = player.money - 1250;
-                    player.holdingWeapon = true;
-                    weapon highWeapon = new weapon();
-                    highWeapon.weaponDurability = random.Next(20,31);
-                    highWeapon.weaponStrength = random.Next(15,26);
+                    if (player.money >= 0 && !player.holdingWeapon)
+                    {
+                        player.holdingWeapon = true;
+                        weapon highWeapon = new weapon();
+                        highWeapon.weaponDurability = random.Next(20, 31);
+                        highWeapon.weaponStrength = random.Next(15, 26);
+                        Console.WriteLine($"Your new weapon has a stregnth of {highWeapon.weaponStrength} and has a durability of {highWeapon.weaponDurability}");
+                    }
+                    else if (player.money < 0)
+                    {
+                        Console.WriteLine("You do not have enough money to buy this weapon");
+                        player.money = player.money + 750;
+                    }
+                    else if (player.holdingWeapon)
+                    {
+                        Console.WriteLine("You already have a weapon equipped! You can not get another weapon");
+                    }
+                    Task.Delay(2000).Wait();
+                    Console.Clear();
                     break;
                 case 3:
                     player.money = player.money - 750;
-                    player.holdingWeapon = true;
-                    weapon meduimWeapon = new weapon();
-                    meduimWeapon.weaponDurability = random.Next(12,24);
-                    meduimWeapon.weaponStrength = random.Next(7,18);
+                    if (player.money >= 0 && !player.holdingWeapon)
+                    {
+                        player.holdingWeapon = true;
+                        weapon meduimWeapon = new weapon();
+                        meduimWeapon.weaponDurability = random.Next(12, 24);
+                        meduimWeapon.weaponStrength = random.Next(7, 18);
+                        Console.WriteLine($"Your new weapon has a stregnth of {meduimWeapon.weaponStrength} and has a durability of {meduimWeapon.weaponDurability}");
+                    }
+                    else if (player.money < 0)
+                    {
+                        Console.WriteLine("You do not have enough money to buy this weapon");
+                        player.money = player.money + 750;
+                    }
+                    else if (player.holdingWeapon)
+                    {
+                        Console.WriteLine("You already have a weapon equipped! You can not get another weapon");
+                    }
+                    Task.Delay(2000).Wait();
+                    Console.Clear();
                     break;
                 case 4:
                     player.money = player.money - 300;
-                    player.holdingWeapon = true;
-                    weapon lowWeapon = new weapon();
-                    lowWeapon.weaponDurability = random.Next(5,16);
-                    lowWeapon.weaponStrength = random.Next(0,11);
+                    if(player.money >= 0 && !player.holdingWeapon)
+                    {
+                        player.holdingWeapon = true;
+                        weapon lowWeapon = new weapon();
+                        lowWeapon.weaponDurability = random.Next(5, 16);
+                        lowWeapon.weaponStrength = random.Next(0, 11);
+                        Console.WriteLine($"Your new weapon has a stregnth of {lowWeapon.weaponStrength} and has a durability of {lowWeapon.weaponDurability}");
+                    }
+                    else if(player.money < 0)
+                    {
+                        Console.WriteLine("You do not have enough money to buy this weapon");
+                        player.money = player.money + 300;
+                    }
+                    else if (player.holdingWeapon)
+                    {
+                        Console.WriteLine("You already have a weapon equipped! You can not get another weapon");
+                    }
+                    
+                    Task.Delay(2000).Wait();
+                    Console.Clear();
                     break;
                 case 5:
                     Console.WriteLine("Returning to main menu");
