@@ -84,7 +84,21 @@ while (playGameUpper == "Y")
             }
             break;
         case ("3"):
-            //wip
+            Console.Clear();
+            Console.WriteLine("What difficulty of enemy do you want to fight? \n1) Easy \n2) Meduim \n3) Hard");
+            int enemyDifficulty = Convert.ToInt32(Console.ReadLine());
+            switch (enemyDifficulty) 
+            {
+                case 1:
+                    Enemy easyEnemy = new Enemy();
+                break;
+                case 2:
+                    Enemy meduimEnemy = new Enemy();
+                break;
+                case 3:
+                    Enemy hardEnemy = new Enemy();
+                break;
+            }
             break;
         case ("4"):
             Console.Clear();
@@ -260,8 +274,7 @@ void showStats() //this is a function that will show the user the players and we
                 $"\nMoney: {player.money} \n\nYour weapon stats are: \nWeapon damage: {lowWeapon.weaponStrength} \nWeapon durability: {lowWeapon.weaponDurability}" +
                 $"\nWeapon rarity: {player.weaponRarityType}");
                 break;
-        }
-        
+        }  
     }
     Task.Delay(5000).Wait();
     Console.Clear();
