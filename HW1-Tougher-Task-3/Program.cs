@@ -6,12 +6,12 @@ Console.WriteLine("Hello! Would you like to play this text based game? Y/N");
 string playGame = Console.ReadLine();
 string playGameUpper = playGame.ToUpper();
  
-character player = new character(); //creates a new object based on character
+Character player = new Character(); //creates a new object based on character
 //lines 11-14 create weapon objects for different rarities of weapons
-weapon mythicWeapon = new weapon(); 
-weapon highWeapon = new weapon();
-weapon meduimWeapon = new weapon();
-weapon lowWeapon = new weapon();
+Weapon mythicWeapon = new Weapon(); 
+Weapon highWeapon = new Weapon();
+Weapon meduimWeapon = new Weapon();
+Weapon lowWeapon = new Weapon();
 Random random = new Random(); //creats a new random oject for any number generation that will be needed
 
 bool welcomed = false; //is used to see if a player is on their first iteration of the menu screen
@@ -256,7 +256,7 @@ void showStats() //this is a function that will show the user the players and we
 }
 
 
-class character
+class Character
 {
     public string characterName = ""; //name of the character, only used for dialogue
     public string weaponRarityType = ""; //This is used to show that stats of weapons
@@ -269,11 +269,16 @@ class character
                                       //e.g. if a weapon has 5 damage the strength would be added on top making it 8.
 } 
 
-class weapon
+class Weapon
 {
     public string weaponName; //no weapon names implemented yet (could use to distinguish types of weapon)
     public int weaponStrength; //how much damage the weapon does by itself
     public int weaponDurability; //how many hits the weapon can do before it breaks (may add a repair feature)
+}
+
+class Enemy : Character
+{
+
 }
 
 //Console.Clear(); use to delete all text on screen ref: asked Oliver CW
