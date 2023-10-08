@@ -91,14 +91,28 @@ while (playGameUpper == "Y")
             {
                 case 1:
                     Enemy easyEnemy = new Enemy();
+                    easyEnemy.characterHealth = random.Next(3,8);
+                    easyEnemy.characterStrength = random.Next(2,7);
+                    easyEnemy.movementSpeed = random.Next(1,5);
                 break;
                 case 2:
                     Enemy meduimEnemy = new Enemy();
+                    meduimEnemy.characterHealth = random.Next(10,21);
+                    meduimEnemy.characterStrength = random.Next(8,13);
+                    meduimEnemy.movementSpeed = random.Next(3,9);
                 break;
                 case 3:
                     Enemy hardEnemy = new Enemy();
+                    hardEnemy.characterHealth = random.Next(25,41);
+                    hardEnemy.characterStrength = random.Next(12, 21);
+                    hardEnemy.movementSpeed = random.Next(10,21);
                 break;
             }
+            //I did not get chance to finish this part of the program. What I was planning on doing was creating a combat system, during combat. . .
+            //the speeds of the player and the enemy are compared, whoever has the highest speed attacks first. When attacking, the damage is calculated. . .
+            //by adding together the damage of the weapon and strength. The combat continues until the player/enemy dies, whichever is first. If the player. . .
+            //dies the program will end, if the player wins their health will be restored to full +1, as well as this the difficulty will affect the amount. . .
+            //of money the player gains, with higher difficulties providing greater rewards
             break;
         case ("4"):
             Console.Clear();

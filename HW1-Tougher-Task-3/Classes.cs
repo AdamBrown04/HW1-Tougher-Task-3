@@ -3,7 +3,7 @@
     public string characterName = ""; //name of the character, only used for dialogue
     public string weaponRarityType = ""; //This is used to show that stats of weapons
     public bool holdingWeapon = false; //sees if the player is currently holding a weapon
-    public float characterHealth = 5.0f; //how much health the character has 
+    public int characterHealth = 5; //how much health the character has 
     public float characterHealthRegeneration = 0.1f; //how much health the character regenerates each turn
     public int money = 500; //amount of in-program currency the character has
     public int movementSpeed = 3; //how fast the character moves
